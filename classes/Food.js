@@ -1,6 +1,6 @@
 export class Food {
-    constructor(photo, name, desc) {
-        this.photo = photo;
+    constructor(image, name, desc) {
+        this.image = image;
         this.name = name;
         this.desc = desc;
     }
