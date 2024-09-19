@@ -37,7 +37,7 @@ const style = StyleSheet.create({
         paddingRight: "0",
         borderRadius: "0",
         border: "none",
-        backgroundColor: "#189E01",
+        backgroundColor: "#72B800",
         color: "white",
         cursor: "pointer"
     },
@@ -47,7 +47,7 @@ const style = StyleSheet.create({
         padding: ".5em",
         borderRadius: "0",
         border: "none",
-        backgroundColor: "#72B800",
+        backgroundColor: "#189E01",
         color: "white",
         cursor: "pointer"
     }

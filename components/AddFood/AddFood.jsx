@@ -4,7 +4,7 @@ import FoodForm from "./FoodForm";
 import FoodBox from "../FoodBox";
 import { StyleSheet } from "react-native";
 
-export default (props) => {
+export default () => {
     const [food, setFood] = useState(new Food("", "", ""));
 
     return(
@@ -16,7 +16,6 @@ export default (props) => {
                 />
 
                 <div>
-                    <h2 style={style.title}>Visualização</h2>
                     <FoodBox food={food}/>
                 </div>
             </div>

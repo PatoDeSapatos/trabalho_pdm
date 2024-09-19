@@ -2,7 +2,6 @@ import { MouseEventHandler, useContext } from "react";
 import { StyleSheet, TextInput } from "react-native";
 import { FoodContext } from "../../App";
 
-
 export default (props) => {
     const {food, setFood} = props;
     const addFood = useContext(FoodContext);

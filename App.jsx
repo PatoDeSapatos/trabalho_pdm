@@ -39,6 +39,10 @@ export default function App() {
       <FoodContext.Provider value={addFood}>
         {component}
       </FoodContext.Provider>
+
+      <div style={styles.footer}>
+        <h3>Comidas Saborosas</h3>
+      </div>
     </View>
   );
 }
@@ -56,5 +60,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#fff",
     fontFamily: "Roboto-Medium"
+  },
+
+  footer: {
+    color: "#fff",
+    width: "100%",
+    textAlign: "center"
   }
 });
