@@ -55,7 +55,8 @@ const style = StyleSheet.create({
         gap: "1em",
         backgroundColor: "#72B800",
         width: "100%",
-        padding: "1em"
+        paddingTop: "1em",
+        paddingBottom: "1em"
     },
 
     fields: {

@@ -29,6 +29,7 @@ const boxStyle = StyleSheet.create({
         backgroundColor: "#189E01",
         borderRadius: "5px",
         width: "450px",
+        maxWidth: "100vw",
 
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 1 },

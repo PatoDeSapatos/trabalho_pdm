@@ -32,6 +32,7 @@ export default function App() {
       <h1 style={styles.title}>Comidas</h1>
 
       <ChangePage page={page} setPage={setPage} />
+      
       {component}
     </View>
   );
