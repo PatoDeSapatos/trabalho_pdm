@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import SearchForm from './components/SearchForm';
 import { useState } from 'react';
 import { fetchFoods } from './interface/api';
@@ -13,7 +13,7 @@ export default function App() {
   const [resultList, setResultList] = useState([]);
 
   const removeFood = (index) => {
-    const foodListCopy = [... foodList];
+    const foodListCopy = [...foodList];
     foodListCopy.splice(index, 1);
     setFoodList(foodListCopy);
   }
@@ -33,51 +33,103 @@ export default function App() {
   }
 
   if (loading) {
-    return (<Text id='loading'>Loading...</Text>)
+    return (<Text style={styles.loadingText}>Loading...</Text>);
   }
 
   switch (page) {
     case '0':
       return ( 
         <View style={styles.container}>
-          <h1>Add a food to your list!</h1>
-          <SearchForm
-            foodList={foodList}
-            setFoodList={setFoodList}
-            setPage={setPage}
-          />
+          <Text style={styles.headerText}>Add a food to your list!</Text>
+          <SearchForm foodList={foodList} setFoodList={setFoodList} setPage={setPage} />
         </View>
-      );
+      );    
     case '1':
       return (
         <View style={styles.container}>
           <PageNav page={page} setPage={setPage} text={"Add new food!"} value="0" />
-          <button onClick={onClickHandler}>Send List</button>
+          
+          <TouchableOpacity style={styles.button} onPress={onClickHandler}>
+            <Text style={styles.buttonText}>Send List</Text>
+          </TouchableOpacity>
 
           {foodList.map((food, key) => {
-            return ( <FoodBox food={food} key={key} index={key} removeFood={removeFood} /> )
+            return ( <FoodBox food={food} key={key} index={key} removeFood={removeFood} /> );
           })}
         </View>
       );
     case '3':
       return(
         <View style={styles.container}>
-          <button onClick={() => setPage('0')}>Back</button>
+          <TouchableOpacity style={styles.button} onPress={() => setPage('0')}>
+            <Text style={styles.buttonText}>Back</Text>
+          </TouchableOpacity>
           <DataBox data={resultList} total={true} />
-
           {resultList.map((data, key) => {
-            return (<DataBox data={data} key={key} />)
+            return (<DataBox data={data} key={key} />);
           })}
         </View>
-      )
+      );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f7f9fc',
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 20,
+  },
+  headerText: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  loadingText: {
+    fontSize: 20,
+    color: '#ff6347',
+    fontWeight: '600',
+  },
+  button: {
+    backgroundColor: '#008CBA',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    marginVertical: 15,
+    borderWidth: 1,
+    borderColor: '#007B9A',
+    elevation: 3,
+    shadowColor: '#007B9A',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+  },
+  buttonText: {
+    fontSize: 18,
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: '600',
+  },
+  foodBox: {
+    backgroundColor: '#fff',
+    padding: 15,
+    marginVertical: 10,
+    borderRadius: 12,
+    width: '100%',
+    elevation: 5,
+    shadowColor: '#888',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    borderWidth: 1,
+    borderColor: '#e1e1e1',
+  },
+  foodBoxText: {
+    fontSize: 16,
+    color: '#333',
+    fontWeight: '500',
   },
 });

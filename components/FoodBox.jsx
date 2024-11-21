@@ -1,4 +1,5 @@
-import { Text } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
+
 
 export default (props) => {
     const {food, index, removeFood} = props;
@@ -9,10 +10,13 @@ export default (props) => {
     }
 
     return(
-        <div>
+        <View>
             <Text>{food.name}</Text>
             <Text>{food.quantity}</Text>
-            <button onClick={onClickHandler}>Remove</button>
-        </div>
+
+            <TouchableOpacity onPress={onClickHandler}>
+                <Text>Remove</Text>
+            </TouchableOpacity>
+        </View>
     )
 }
