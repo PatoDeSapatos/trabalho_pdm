@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
         minWidth: 240,
     },
     info: {
-        fontSize: 16 
+        fontSize: 16,
+        textTransform: 'capitalize'
     },
 })
