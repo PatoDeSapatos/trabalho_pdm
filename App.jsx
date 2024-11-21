@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import SearchForm from './components/SearchForm';
 import { useState } from 'react';
 import { fetchFoods } from './interface/api';
@@ -39,14 +39,14 @@ export default function App() {
   switch (page) {
     case '0':
       return ( 
-        <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container}>
           <Text style={styles.headerText}>Add a food to your list!</Text>
           <SearchForm foodList={foodList} setFoodList={setFoodList} setPage={setPage} />
-        </View>
+        </ScrollView>
       );    
     case '1':
       return (
-        <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container}>
           <TouchableOpacity style={styles.button} onPress={() => setPage('0')}>
             <Text style={styles.buttonText}>Add More Foods</Text>
           </TouchableOpacity>
@@ -55,41 +55,40 @@ export default function App() {
             <Text style={styles.buttonText}>Check Calories!</Text>
           </TouchableOpacity>
 
-          <View style={styles.foodWrapper}>
+          <ScrollView>
             {foodList.map((food, key) => {
               return ( <FoodBox food={food} key={key} index={key} removeFood={removeFood} /> );
             })}
-          </View>
-        </View>
+          </ScrollView>
+        </ScrollView>
       );
     case '3':
       return(
-        <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container}>
           <TouchableOpacity style={styles.button} onPress={() => {
             setPage('0');
             setFoodList([]);
-          }
-          } >
+          }}>
             <Text style={styles.buttonText}>Back</Text>
           </TouchableOpacity>
 
-          <View style={styles.meal}>
+          <ScrollView contentContainerStyle={styles.meal}>
             <View>
               <Text style={styles.foodBoxText}>Meal: </Text>
               <DataBox data={resultList} total={true} />
             </View>
 
-            <View>
+            <ScrollView contentContainerStyle={styles.container}>
               <Text style={styles.foodBoxText}>Ingredients: </Text>
 
-              <View style={styles.foodWrapper}>
+              <ScrollView contentContainerStyle={styles.container}>
                 {resultList.map((data, key) => {
                   return (<DataBox data={data} key={key} />);
                 })}
-              </View>
-            </View>
-          </View>
-        </View>
+              </ScrollView>
+            </ScrollView>
+          </ScrollView>
+        </ScrollView>
       );
   }
 }

@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     container: {
         display: 'flex',
         flexDirection: 'column',
-        gap: 16 // This can be adjusted as needed (1em is roughly 16px)
+        gap: 16
     },
     add : {
         backgroundColor: '#ee82ee',
@@ -71,16 +71,16 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     label: {
-        fontSize: 24, // Assuming 1.5em is around 24px
+        fontSize: 24, 
         width: '100%',
         textAlign: 'center'
     },
     input: {
         borderColor: 'black',
-        borderWidth: 1, // This is already in number format
-        borderRadius: 5, // Assuming 5px is the same as 5
-        fontSize: 19, // Assuming 1.2em is around 19px
-        padding: 5, // This is already in number format
+        borderWidth: 1, 
+        borderRadius: 5, 
+        fontSize: 19,
+        padding: 5, 
     }
 });
 

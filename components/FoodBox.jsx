@@ -27,18 +27,17 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: 10, // Approximate value for spacing (adjust as needed)
+        gap: 10, 
         backgroundColor: '#ffddff',
-        padding: 24, // 1.5em is roughly 24px
-        minWidth: 240, // 15em is roughly 240px
-        borderRadius: 15 // Keep as is, since it's already in number format
+        padding: 24, 
+        minWidth: 240,
     },
     info: {
-        fontSize: 20 // 1.25em is roughly 20px
+        fontSize: 20 
     },
     remove: {
-        padding: 8, // Adjusted from 3px for better touch target
-        borderRadius: 5, // Keep as is
+        padding: 8, 
+        borderRadius: 5, 
         backgroundColor: '#ee82ee',
         color: 'white',
         width: "100%",
