@@ -45,14 +45,13 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: ".3em",
+        gap: 8, // Approximate value for spacing (React Native does not support gap directly)
         backgroundColor: '#ffddff',
-        padding: '1.5em',
-        minWidth: '15em',
-        borderRadius: '15px'
+        padding: 24, // 1.5em is roughly 24px (1em ≈ 16px)
+        minWidth: 240, // 15em is roughly 240px (15 * 16)
+        borderRadius: 15 // Keep as is, since it's already in number format
     },
     info: {
-        fontSize: '1em',
-        textTransform: 'capitalize'
+        fontSize: 16 // 1em is roughly 16px
     },
 })

@@ -27,21 +27,21 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: ".6em",
+        gap: 10, // Approximate value for spacing (adjust as needed)
         backgroundColor: '#ffddff',
-        padding: '1.5em',
-        minWidth: '15em',
-        borderRadius: '15px'
+        padding: 24, // 1.5em is roughly 24px
+        minWidth: 240, // 15em is roughly 240px
+        borderRadius: 15 // Keep as is, since it's already in number format
     },
     info: {
-        fontSize: '1.25em'
+        fontSize: 20 // 1.25em is roughly 20px
     },
     remove: {
-        padding: '3px',
-        borderRadius: '5px',
+        padding: 8, // Adjusted from 3px for better touch target
+        borderRadius: 5, // Keep as is
         backgroundColor: '#ee82ee',
         color: 'white',
         width: "100%",
         textAlign: 'center'
     }
-})
+});
