@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default (props) => {
     const {data, total} = props;
@@ -29,12 +29,30 @@ export default (props) => {
     }
 
     return(
-        <View>
-            <Text>{values["name"]} - {values["serving_size_g"]}g</Text>
-            <Text>Calories: {values["calories"]}</Text>
-            <Text>Carbohydrates: {values["carbohydrates_total_g"]}g</Text>
-            <Text>Protein: {values["protein_g"]}g</Text>
-            <Text>Fat: {values["fat_total_g"]}g</Text>
+        <View style={styles.box}>
+            <Text style={styles.info}>{values["name"]} - {values["serving_size_g"]}g</Text>
+            <Text style={styles.info}>Calories: {values["calories"]}</Text>
+            <Text style={styles.info}>Carbohydrates: {values["carbohydrates_total_g"]}g</Text>
+            <Text style={styles.info}>Protein: {values["protein_g"]}g</Text>
+            <Text style={styles.info}>Fat: {values["fat_total_g"]}g</Text>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    box: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: ".3em",
+        backgroundColor: '#ffddff',
+        padding: '1.5em',
+        minWidth: '15em',
+        borderRadius: '15px'
+    },
+    info: {
+        fontSize: '1em',
+        textTransform: 'capitalize'
+    },
+})

@@ -1,4 +1,4 @@
-import { Text, TextInput, View, TouchableOpacity } from "react-native";
+import { Text, TextInput, View, TouchableOpacity, StyleSheet } from "react-native";
 import { Food } from "../domain/Food";
 
 const SearchForm = (props) => {
@@ -28,22 +28,61 @@ const SearchForm = (props) => {
     }
 
     return (
-        <View>
+        <View style={styles.container}>
             <View>
-                <Text aria-label="Label for food-name" nativeID="food-name"> Name: </Text>
-                <TextInput aria-label="input" aria-labelledby="food-name" onChange={nameChange} />
+                <Text style={styles.label} aria-label="Label for food-name" nativeID="food-name"> Name: </Text>
+                <TextInput style={styles.input} aria-label="input" aria-labelledby="food-name" onChange={nameChange} />
             </View>
 
             <View>
-                <Text aria-label="Label for food-quantity" nativeID="food-quantity"> Quantity (g): </Text>
-                <TextInput aria-label="input" aria-labelledby="food-quantity" keyboardType="numeric" onChange={quantityChange} />
-            </View>
+                <Text style={styles.label} aria-label="Label for food-quantity" nativeID="food-quantity"> Quantity (g): </Text>
+                <TextInput style={styles.input} aria-label="input" aria-labelledby="food-quantity" keyboardType="numeric" onChange={quantityChange} />
+            </View >
 
-            <TouchableOpacity onPress={onClickHandler}>
-                <Text>Add</Text>
+            <TouchableOpacity onPress={onClickHandler} style={styles.add}>
+                <Text style={styles.addText}>Add</Text>
             </TouchableOpacity>
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1em'
+    },
+    add : {
+        backgroundColor: '#ee82ee',
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 8,
+        marginVertical: 15,
+        borderWidth: 1,
+        borderColor: '#666',
+        elevation: 3,
+        shadowColor: '#007B9A',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 5,
+    },
+    addText: {
+        color : '#fff',
+        textAlign: 'center'
+    },
+    label: {
+        fontSize: '1.5em',
+        width: '100%',
+        textAlign: 'center'
+    },
+    input: {
+        borderColor: 'black',
+        borderWidth: '1px',
+        borderRadius: '5px',
+        fontSize: '1.2em',
+        padding: '5px',
+    }
+});
+
 
 export default SearchForm;
